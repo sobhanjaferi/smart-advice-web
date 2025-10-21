@@ -17,6 +17,7 @@ function ChatBot() {
           onClick={HandleOpenClose}
         ></i>
       </div>
+
       <div
         className={`flex flex-col justify-end items-center lg:w-60 lg:h-100 sm:w-60 sm:h-100 w-50 h-80 shad rounded-xl fixed lg:right-25 lg:bottom-25 sm:right-25 sm:bottom-25 right-18 bottom-18 z-90 bg-white transition-all duration-500 ease-in-out ${
           openClose

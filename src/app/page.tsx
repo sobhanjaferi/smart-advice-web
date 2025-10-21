@@ -1,3 +1,4 @@
+import AboutUs from "@/components/aboutUs";
 import Business from "@/components/BusinessSection";
 import ChatBot from "@/components/chatBot";
 import FamusCompany from "@/components/famusCompany";
@@ -10,6 +11,7 @@ function Home() {
       <ChatBot />
       <Business />
       <FamusCompany />
+      <AboutUs />
     </div>
   );
 }

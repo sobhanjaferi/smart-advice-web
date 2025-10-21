@@ -14,6 +14,13 @@ interface TnavItems {
 function NavBar({ position }: { position: string }) {
   const [scroll, setScroll] = useState<Boolean>(false);
   const [navList, setNavList] = useState<Boolean>(true);
+  const [timer, setTimer] = useState<boolean>(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setTimer(true);
+    }, 1500);
+  }, []);
 
   useEffect(() => {
     const HandleScroll = () => {
@@ -71,7 +78,7 @@ function NavBar({ position }: { position: string }) {
 
   return (
     <nav
-      className={`flex justify-between items-center h-20 
+      className={`flex justify-between items-center h-20
       py-10 px-8 z-100 transition-all
       duration-700 ease-in-out
       ${position} ${scroll ? "bg-white shad opacity-100" : ""}`}
@@ -87,7 +94,9 @@ function NavBar({ position }: { position: string }) {
         ></i>
       </div>
       <div
-        className={`sm:flex sm:flex-col sm:justify-center flex flex-col justify-center items-center lg:flex lg:justify-center lg:items-center lg:flex-row lg:mt-0 transition-all duration-700 ease-in-out ${
+        className={`sm:flex sm:flex-col sm:justify-center flex flex-col justify-center items-center lg:flex lg:justify-center lg:items-center lg:flex-row lg:mt-0 lg:mr-[-30px] transition-all duration-700 ease-in-out lg:opacity-0 ${
+          timer ? "lg:opacity-100 lg:mr-[0px]" : ""
+        }  ${
           navList
             ? "opacity-100 mr-0 pointer-events-auto"
             : "opacity-0 mr-[-30px] pointer-events-none"
@@ -109,7 +118,7 @@ function NavBar({ position }: { position: string }) {
           ))}
         </ul>
 
-        <Button name="Call Now" newStyle="sm:px-7 sm:py-2" />
+        <Button name="Call Now" newStyle="lg:mt-0 sm:px-7 sm:py-2" />
       </div>
     </nav>
   );

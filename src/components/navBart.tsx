@@ -19,12 +19,12 @@ function NavBar({ position }: { position: string }) {
   useEffect(() => {
     setTimeout(() => {
       setTimer(true);
-    }, 1500);
+    }, 800);
   }, []);
 
   useEffect(() => {
     const HandleScroll = () => {
-      if (window.scrollY >= 50) {
+      if (window.scrollY >= 20) {
         setScroll(true);
       } else {
         setScroll(false);
@@ -87,8 +87,8 @@ function NavBar({ position }: { position: string }) {
 
       <div className="fixed right-7.5 top-7.5 flex justify-center items-center">
         <i
-          className={`fa-solid fa-list  w-10 h-10 block lg:opacity-0 transition-all duration-300 ease-in-out ${
-            navList ? "mr-[-10px] mb-15 rotate-[45px]" : "rotate-0"
+          className={`cursor-pointer fa-solid fa-list block lg:opacity-0 transition-all duration-400 ease-in-out ${
+            navList ? "rotate-180 text-violet-600" : "rotate-0"
           }`}
           onClick={handleOpenClose}
         ></i>

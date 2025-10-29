@@ -11,7 +11,7 @@ function ChatBot() {
 
   return (
     <div>
-      <div className="fixed lg:bottom-10 lg:right-10 sm:bottom-10 sm:right-10 bottom-5 right-5">
+      <div className="fixed lg:bottom-10 lg:right-10 sm:bottom-10 sm:right-10 bottom-5 right-5 z-90">
         <i
           className="fa-solid fa-comments py-4 pr-8 pl-4 bg-blue-950 text-white rounded-full cursor-pointer noShad transition-all duration-200 ease-in-out"
           onClick={HandleOpenClose}

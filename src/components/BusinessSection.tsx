@@ -2,7 +2,7 @@ function Business() {
   return (
     <div className="flex flex-col justify-between items-center mt-20">
       <p className="text-violet-600">SERVICES</p>
-      <p className="text-blue-950 text-center font-bold text-4xl mt-10">
+      <p className="text-blue-950 text-center font-bold text-4xl mt-10 mx-2">
         Taking Your Business to <br /> the Next Level
       </p>
 

@@ -10,7 +10,7 @@ function Header() {
   useEffect(() => {
     setTimeout(() => {
       setTimer(true);
-    }, 1500);
+    }, 800);
   }, []);
 
   return (

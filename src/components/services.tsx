@@ -1,13 +1,59 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
 function FamusCompany() {
+  const [scroll, setScroll] = useState<Boolean>(false);
+  const [scrollMobile, setScrollMobile] = useState<Boolean>(false);
+
+  useEffect(() => {
+    const HandleScroll = () => {
+      if (window.scrollY >= 1300) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    };
+
+    window.addEventListener("scroll", HandleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", HandleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const HandleScrollMobile = () => {
+      if (window.scrollY >= 2000) {
+        setScrollMobile(true);
+      } else {
+        setScrollMobile(false);
+      }
+    };
+
+    window.addEventListener("scroll", HandleScrollMobile);
+
+    return () => {
+      window.removeEventListener("scroll", HandleScrollMobile);
+    };
+  }, []);
+
   return (
     <div className="w-full lg:h-80 sm:h-80 h-135 py-5 bg-blue-950 text-white flex flex-col lg:justify-center sm:justify-center justify-between items-center mt-30">
-
-      <h1 className="font-bold lg:text-4xl sm:text-4xl text-2xl mb-15">
+      <h1
+        className={`font-bold lg:text-4xl sm:text-4xl text-2xl lg:mb-0 lg:opacity-0 sm:mb-0 sm:opacity-0 opacity-0 mb-[20px] transition-all duration-800 ${
+          scroll ? "lg:opacity-100 lg:mb-15 sm:opacity-100 sm:mb-15" : ""
+        } ${scrollMobile ? "opacity-100 mt-[20px]" : ""}`}
+      >
         We’re Good with Numbers
       </h1>
       <div className="flex justify-center items-center">
-        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center sm:flex-row sm:justify-between sm:items-center">
-          <div className="flex flex-col justify-between items-center">
+        <div
+          className={`flex flex-col lg:flex-row lg:justify-between lg:items-center sm:flex-row sm:justify-between sm:items-center lg:opacity-100 sm:opacity-100 opacity-0 transition-all duration-1500 ${
+            scrollMobile ? "opacity-100" : ""
+          }`}
+        >
+          <div className={`flex flex-col justify-between items-center`}>
             <span className="font-bold lg:text-7xl sm:text-5xl text-4xl">
               15
             </span>

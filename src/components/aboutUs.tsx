@@ -1,4 +1,43 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
 function AboutUs() {
+  const [scroll, setScroll] = useState<Boolean>(false);
+  const [scrollMobile, setScrollMobile] = useState<Boolean>(false);
+
+  useEffect(() => {
+    const HandleScroll = () => {
+      if (window.scrollY >= 1500) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    };
+
+    window.addEventListener("scroll", HandleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", HandleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const HandleScrollMobile = () => {
+      if (window.scrollY >= 2800) {
+        setScrollMobile(true);
+      } else {
+        setScrollMobile(false);
+      }
+    };
+
+    window.addEventListener("scroll", HandleScrollMobile);
+
+    return () => {
+      window.removeEventListener("scroll", HandleScrollMobile);
+    };
+  }, []);
+
   return (
     <div className="relative h-150 w-full">
       <div className="absolute top-0 left-0 sm:left-0 lg:left-1/2 right-0 bottom-0 z-10 h-full w-full sm:w-full lg:w-1/2">
@@ -8,9 +47,15 @@ function AboutUs() {
         />
       </div>
 
-      <div className="flex justify-center items-center w-full sm:w-full lg:w-1/2 z-20 px-5 sm:pl-20 absolute top-0 left-0 right-0 bottom-0">
-        <div className="flex flex-col justify-around items-start w-full h-140">
-          <h1 className="text-violet-600 text-2xl">ABOUT</h1>
+      <div
+        className={`flex justify-center items-center w-full sm:w-full lg:w-1/2 z-20 px-5 sm:pl-20 absolute top-0 left-0 right-0 bottom-0`}
+      >
+        <div
+          className={`flex flex-col justify-around items-start w-full h-140 transition-all duration-1000 lg:opacity-0 sm:opacity-0 opacity-0 ${
+            scroll ? "lg:opacity-100 sm:opacity-100" : ""
+          } ${scrollMobile ? "opacity-100" : ""}`}
+        >
+          <h1 className={`text-violet-600 text-2xl`}>ABOUT</h1>
 
           <p className="font-bold text-4xl text-blue-950">
             Our Experts Are <br /> the Finest

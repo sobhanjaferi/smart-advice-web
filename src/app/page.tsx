@@ -4,6 +4,7 @@ import ChatBot from "@/components/chatBot";
 import FamusCompany from "@/components/services";
 import Header from "@/components/header";
 import Slider from "@/components/slider";
+import HappyClients from "@/components/happyClients";
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
       <FamusCompany />
       <AboutUs />
       <Slider />
+      <HappyClients />
     </div>
   );
 }
